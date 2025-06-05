@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connor's Workshop</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    header img {
+      max-height: 150px;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    .interactive-card {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.75rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+
+    .interactive-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+    }
+
+    .carousel-inner img {
+      max-height: 300px;
+      object-fit: contain;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+    }
+
+    .carousel-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(20px);
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .carousel-inner {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="unnamed.png" alt="Connor's Workshop Logo" />
+  </header>
+
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>Connor's Workshop</strong></li>
+    </ul>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/art.html">Art</a></li>
+      <li><a href="pages/prints.html">3D Prints</a></li>
+      <li><a href="pages/food.html">Food</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h2>Welcome to Connor's Workshop</h2>
+    <p>Explore our handcrafted art, unique 3D prints, and delicious homemade food.</p>
+    <h3>New Arrivals</h3>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-background" id="carouselBackground"></div>
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/paintings/beach.JPG" class="d-block w-100" alt="New Art 1">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/paintings/planet_swing.JPG" class="d-block w-100" alt="New Art 2">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/paintings/aqua.JPG" class="d-block w-100" alt="New Art 3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid mt-4">
+  <a href="pages/art.html" class="interactive-card" style="text-decoration: none; color: inherit;">
+    <h3>Art</h3>
+    <p>Discover my latest peices.</p>
+  </a>
+  <a href="pages/prints.html" class="interactive-card" style="text-decoration: none; color: inherit;">
+    <h3>3D Prints</h3>
+    <p>Discover my 3D printed items.</p>
+  </a>
+  <a href="pages/food.html" class="interactive-card" style="text-decoration: none; color: inherit;">
+    <h3>Treats</h3>
+    <p>Discover my homemade treats</p>
+  </a>
+</div>
+
+
+  <footer class="container">
+    <small>
+      Contact: <a href="mailto:connorclair9002+workshop@gmail.com">connorclair9002+workshop@gmail.com</a> • Location: 123 Maker St, Create City
+    </small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const background = document.getElementById('carouselBackground');
+    const images = [
+      '/images/paintings/beach.JPG',
+      '/images/paintings/planet_swing.JPG',
+      '/images/paintings/aqua.JPG'
+    ];
+
+    const carousel = document.getElementById('carouselExampleIndicators');
+    const updateBackground = () => {
+      const activeIndex = [...carousel.querySelectorAll('.carousel-item')].findIndex(item => item.classList.contains('active'));
+      background.style.backgroundImage = `url('${images[activeIndex]}')`;
+    };
+
+    carousel.addEventListener('slid.bs.carousel', updateBackground);
+    updateBackground(); // initial load
+  </script>
+</body>
+
+</html>
