@@ -22,13 +22,8 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
-    footer {
-      text-align: center;
-      padding-top: 2rem;
-    }
-
     .carousel-inner img {
-      max-height: 300px;
+      max-height: 500px;
       object-fit: contain;
     }
 
@@ -52,6 +47,14 @@
       position: relative;
       z-index: 1;
     }
+
+    main p {
+        color: #F79B72;
+    }
+
+    .interactive-card h3 {
+      color: #2A4759;
+    }
   </style>
 </head>
 
@@ -59,7 +62,7 @@
 
   <nav class="container-fluid">
     <ul>
-      <li><a href="index.html"><img src="images/logo.png" alt="Connor's Workshop Logo" /></a></li>
+      <li><a href="index.html"><img src="images/logo.png" alt="Connor's Workshop Logo" style="margin: 25px;"/></a></li>
     </ul>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -72,8 +75,8 @@
   <main class="container">
     <h2>Welcome to Connor's Workshop</h2>
     <p>Explore our handcrafted art, unique 3D prints, and delicious homemade food.</p>
-    <h3>New Arrivals</h3>
-
+    <h3 style="text-align: center;">New Arrivals</h3>
+    <br>
     <div class="carousel-wrapper">
       <div class="carousel-background" id="carouselBackground"></div>
 

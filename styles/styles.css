@@ -1,6 +1,6 @@
 body {
     background-color: #2A4759;
-    color:rgb(199, 81, 81);
+    color: #DDDDDD;
 }
 
 nav.container-fluid ul {
@@ -35,4 +35,9 @@ nav.container-fluid ul {
     }
     nav.container-fluid ul img:hover {
       transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
     }
