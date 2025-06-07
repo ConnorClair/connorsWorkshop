@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Connor's Paintings</title>
+  <title>Connor's prints</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../styles/styles.css" />
@@ -29,7 +29,7 @@
       justify-content: center;
     }
 
-    .painting {
+    .print {
       background: #222;
       border-radius: 8px;
       overflow: hidden;
@@ -44,18 +44,18 @@
       max-width: 100%;
     }
 
-    .painting:hover {
+    .print:hover {
       transform: scale(1.05);
       box-shadow: 0 0 12px #0af;
     }
 
-    .painting img {
+    .print img {
       height: 400px;
       max-width: 100%;
       display: block;
     }
 
-    .painting .title {
+    .print .title {
       padding: 10px;
       text-align: center;
       font-weight: 600;
@@ -110,17 +110,27 @@
 
     </div>
     <section class="gallery">
-      <a href="javascript:void(0)" class="painting">
-        <img src="../images/paintings/rainy_window.JPG" alt="Rainy Window" />
-        <div class="title">Rainy Window</div>
+      <a href="javascript:void(0)" class="print">
+        <img src="../images/prints/edited/butterfly_comb.png" alt="Butterfly Comb" />
+        <div class="title">Butterfly Comb</div>
         <div class="price">$15</div>
       </a>
+      <a href="javascript:void(0)" class="print">
+        <img src="../images/prints/edited/dagger.png" alt="Dagger" />
+        <div class="title">Dagger</div>
+        <div class="price">$20</div>
+      </a>
+      <a href="javascript:void(0)" class="print">
+        <img src="../images/prints/edited/dice tower.png" alt="Dice Tower" />
+        <div class="title">Dice Tower</div>
+        <div class="price">$8</div>
+      </a>
     </section>
-    <h1 style="color:firebrick; text-align:center; margin-bottom:2rem;">Sold</h1>
+    <h1 style="color:indianred; text-align:center; margin-bottom:2rem;">Dollar Bin</h1>
     <section class="gallery">
-      <a href="javascript:void(0)" class="painting">
-        <img src="../images/sold/fisherman.JPG" alt="Fisherman" />
-        <div class="title">Fisherman</div>
+      <a href="javascript:void(0)" class="print">
+        <img src="../images/prints/edited/fidget_rings.png" alt="Fidget Rings" />
+        <div class="title">Fidget Rings</div>
       </a>
     </section>
   </main>
@@ -135,14 +145,14 @@
 
   <div id="imageModal"
     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; justify-content:center; align-items:center;">
-    <img id="modalImage" src="" alt="Enlarged painting"
+    <img id="modalImage" src="" alt="Enlarged print"
       style="max-width:90%; max-height:90%; box-shadow:0 0 20px #0af; border-radius:8px;">
   </div>
   <script>
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
 
-    document.querySelectorAll(".painting img").forEach(img => {
+    document.querySelectorAll(".print img").forEach(img => {
       img.addEventListener("click", () => {
         modalImg.src = img.src;
         modal.style.display = "flex";
@@ -155,26 +165,26 @@
     });
 
     const gallery = document.querySelectorAll("section.gallery")[0];
-    const paintings = Array.from(gallery.children);
-    const originalOrder = paintings.slice();
+    const prints = Array.from(gallery.children);
+    const originalOrder = prints.slice();
     const sortSelect = document.getElementById("sortSelect");
 
     sortSelect.addEventListener("change", () => {
       let sorted;
       if (sortSelect.value === "alpha") {
-        sorted = paintings.slice().sort((a, b) => {
+        sorted = prints.slice().sort((a, b) => {
           const titleA = a.querySelector(".title").textContent.trim();
           const titleB = b.querySelector(".title").textContent.trim();
           return titleA.localeCompare(titleB);
         });
       } else if (sortSelect.value === "price") {
-        sorted = paintings.slice().sort((a, b) => {
+        sorted = prints.slice().sort((a, b) => {
           const priceA = parseFloat(a.querySelector(".price").textContent.replace("$", ""));
           const priceB = parseFloat(b.querySelector(".price").textContent.replace("$", ""));
           return priceA - priceB;
         });
       } else if (sortSelect.value === "price-desc") {
-        sorted = paintings.slice().sort((a, b) => {
+        sorted = prints.slice().sort((a, b) => {
           const priceA = parseFloat(a.querySelector(".price").textContent.replace("$", ""));
           const priceB = parseFloat(b.querySelector(".price").textContent.replace("$", ""));
           return priceB - priceA;
