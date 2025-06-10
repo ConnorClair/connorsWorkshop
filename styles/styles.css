@@ -40,6 +40,7 @@ nav.container-fluid .nav-links li a:hover {
 
 nav.container-fluid .nav-logo img {
     height: 8em;
+    width: 8em;
     transition: transform 0.3s ease;
 }
 
